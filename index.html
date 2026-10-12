@@ -104,6 +104,14 @@
   }
   .hero-sub { font-size: 17px; color: var(--warm-grey); max-width: 480px; margin: 0 auto; opacity: 0; transition: opacity 1s ease 0.9s; }
   .hero-sub.revealed { opacity: 1; }
+  .hero-content { padding: 0 28px; }
+  .hero-sub { padding: 0 4px; }
+  details > summary.read-more { cursor: pointer; margin-top: 8px; list-style: none; }
+  details > summary.read-more::-webkit-details-marker { display: none; }
+  details[open] > summary.read-more { display: none; }
+  .show-less { background: none; border: 0; padding: 0; margin: 4px 0 0; font: inherit; color: var(--vermillion); cursor: pointer; text-decoration: underline; }
+  @media (max-width: 520px) { .hero-content { padding: 0 32px; } .hero-sub { font-size: 16px; } }
+
   .scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 11px; color: var(--warm-grey); letter-spacing: 1px; z-index: 1; }
   #pixel-rocket {
     position: absolute; width: 60px; height: 40px; z-index: 2;
@@ -579,7 +587,7 @@
       <div class="tool-tier-row">
         <span class="tool-tier-label">Used</span>
         <div class="tool-pixels">
-          <span class="tool-pixel used">Excel</span><span class="tool-pixel used">Dynamics 365</span><span class="tool-pixel used">SharePoint</span><span class="tool-pixel used">PeopleSoft</span><span class="tool-pixel used">Microsoft Visio</span><span class="tool-pixel used">Microsoft Project</span><span class="tool-pixel used">Google Workspace</span><span class="tool-pixel used">Python</span><span class="tool-pixel used">Claude</span><span class="tool-pixel used">Gemini</span><span class="tool-pixel used">ChatGPT</span><span class="tool-pixel used">Qualtrics</span><span class="tool-pixel used">Microsoft 365</span><span class="tool-pixel used">Microsoft Copilot</span><span class="tool-pixel used">Lovable</span><span class="tool-pixel used">Claude Code</span><span class="tool-pixel used">TikTok, Instagram &amp; YouTube Insights</span>
+          <span class="tool-pixel used">Excel</span><span class="tool-pixel used">Dynamics 365</span><span class="tool-pixel used">SharePoint</span><span class="tool-pixel used">PeopleSoft</span><span class="tool-pixel used">Microsoft Visio</span><span class="tool-pixel used">Microsoft Project</span><span class="tool-pixel used">Google Workspace</span><span class="tool-pixel used">Python</span><span class="tool-pixel used">Claude</span><span class="tool-pixel used">Gemini</span><span class="tool-pixel used">ChatGPT</span><span class="tool-pixel used">Qualtrics</span><span class="tool-pixel used">Microsoft 365</span><span class="tool-pixel used">Microsoft Copilot</span><span class="tool-pixel used">Lovable</span><span class="tool-pixel used">GitHub</span><span class="tool-pixel used">Claude Code</span><span class="tool-pixel used">TikTok, Instagram &amp; YouTube Insights</span>
         </div>
       </div>
       <div class="tool-tier-row">
@@ -637,36 +645,39 @@
       <div class="fieldnote-meta">LinkedIn &middot; Program Management</div>
       <p>Always anticipate.</p>
       <p>As a program manager, a big part of my job is seeing problems before they arrive. That means asking the right questions early, so small issues never get the chance to become delays.</p>
-      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+      <details><summary class="read-more">Read more</summary>
         <p>Building my first software product has taught me the same lesson from a different angle.</p>
         <p>My app includes an AI agent with one deliberately narrow job: helping users complete a specific section. Early on, I asked myself, &ldquo;What happens when someone tries to make it do more?&rdquo;</p>
         <p>Because someone will. So I set guardrails to keep the agent focused on what it was designed for, no matter how it&rsquo;s asked.</p>
         <p>The challenge is that you can only anticipate so much at once. Some problems only show up when real people use what you&rsquo;ve built.</p>
         <p>But anticipating is still worth it. It isn&rsquo;t about predicting everything. It&rsquo;s about being prepared enough that you can adapt quickly when something does come up. Plan for what you can see. Stay flexible for what you can&rsquo;t.</p>
         <p>What&rsquo;s a problem you caught early that saved you a lot of trouble later?</p>
+        <button type="button" class="show-less">Show less</button>
         </details>
     </div>
     <div class="fieldnote" style="margin-bottom:34px">
       <div class="fieldnote-meta">LinkedIn &middot; Product Thinking</div>
       <p>Sociology taught me to study people. Art taught me to see. Both turned out to be product skills.</p>
       <p>As I build my app with AI tools like Lovable and Claude Code, I keep coming back to what my degree trained me to do.</p>
-      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+      <details><summary class="read-more">Read more</summary>
         <p>Sociology taught me to ask how people actually behave, not how we assume they will. So when I design a screen, I don&rsquo;t stop at &ldquo;Does this work?&rdquo; I ask, &ldquo;What will someone really do here?&rdquo;</p>
         <p>Art taught me to notice what feels clear and what feels cluttered. That shows up every time I decide what stays on a page and what goes.</p>
         <p>Great products are built for people. And understanding people is a skill you can build in many places.</p>
         <p>Every experience you&rsquo;ve had is preparing you for something. Sometimes you only see what when you start something new.</p>
         <p>What&rsquo;s a skill from an unexpected place that shows up in your work today?</p>
+        <button type="button" class="show-less">Show less</button>
         </details>
     </div>
     <div class="fieldnote" style="margin-bottom:34px">
       <div class="fieldnote-meta">LinkedIn &middot; Prioritization</div>
       <p>Not everything that arrives urgently is urgent.</p>
       <p>One of my earliest lessons in managing complex work came from a high-volume customer service role. Requests came in all day. Each one felt like a priority to the person sending it, and every one deserved a response. But they couldn&rsquo;t all go first.</p>
-      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+      <details><summary class="read-more">Read more</summary>
         <p>So I learned to triage. Before acting on a request, I&rsquo;d ask: What do the guidelines actually say? Who is affected, and how quickly? Which team is best placed to solve this?</p>
         <p>Those three questions did more than sort a queue. They turned a constant flood of &ldquo;urgent&rdquo; into a clear order of work, and they meant each request reached the right people the first time.</p>
         <p>I still use that habit today, whether I&rsquo;m coordinating stakeholders or deciding what to build next in my app. When everything feels urgent, the real work is deciding what matters most.</p>
         <p>How do you decide what comes first when everything feels like a priority?</p>
+        <button type="button" class="show-less">Show less</button>
         </details>
     </div>
     <div class="fieldnote" style="margin-bottom:34px">
@@ -993,5 +1004,6 @@
     window.addEventListener('resize', updateActive);
   })();
 </script>
+<script>document.querySelectorAll('.show-less').forEach(function(b){b.addEventListener('click',function(){var d=b.closest('details');d.open=false;d.scrollIntoView({block:'center',behavior:'smooth'});});});</script>
 </body>
 </html>
