@@ -56,6 +56,25 @@
   nav ul a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
   nav ul a:hover { color: var(--vermillion); }
   .nav-icon { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.8; }
+  html { overflow-x: hidden; max-width: 100%; }
+  @media (max-width: 700px) {
+    .tool-tier-row { flex-direction: column; gap: 8px; }
+    .tool-tier-label { width: auto; padding-top: 0; }
+    .tool-pixels { width: 100%; }
+    .float-tab { padding: 9px 14px !important; font-size: 12px !important; opacity: 0.95; }
+  }
+  @media (max-width: 700px) {
+    nav .wrap { padding: 12px 16px; }
+    .live-date { display: none; }
+    nav .brand { font-size: 17px; }
+    nav ul { gap: 16px; }
+    nav ul a { font-size: 13px; gap: 5px; }
+  }
+  @media (max-width: 520px) {
+    nav ul { gap: 12px; }
+    nav ul a { font-size: 0; gap: 0; padding: 6px; }
+    nav ul a .nav-icon { width: 20px; height: 20px; opacity: 0.9; }
+  }
 
   /* HERO */
   #hero { position: relative; padding-top: 60px; }
@@ -252,6 +271,7 @@
     <div class="hero-role" id="hero-role">Program Manager</div>
     <div class="hero-line" id="hero-line">I make complicated work <span class="moving-word" id="moving-word">move</span>.</div>
     <div class="hero-sub" id="hero-sub">Working at the intersection of people, process, and technology.</div>
+    <div class="hero-sub" id="hero-sub-2" style="margin-top:10px">Program coordination, creator strategy and AI enablement.</div>
   </div>
   <div class="scroll-cue">SCROLL &darr;</div>
   <svg id="pixel-rocket" viewBox="0 0 60 40" aria-hidden="true">
@@ -313,7 +333,7 @@
 <section id="work">
   <div class="wrap">
     <div class="section-eyebrow">Selected Work</div>
-    <h2>Six stories. One recurring pattern.</h2>
+    <h2>Eleven stories. One recurring pattern.</h2>
     <p class="section-dek">Each diagram visualizes the actual mechanism of the fix, not a generic icon.</p>
 
     <div class="cases">
@@ -429,6 +449,99 @@
         </div>
       </div>
 
+
+      <!-- CASE 7: Creator and growth -->
+      <div class="case-card">
+        <button class="case-toggle" aria-expanded="false">
+          <div class="case-toggle-left">
+            <svg class="case-diagram" viewBox="0 0 56 56"><g fill="var(--charcoal)" opacity="0.45"><rect x="6" y="38" width="6" height="10"/><rect x="16" y="34" width="6" height="14"/><rect x="26" y="28" width="6" height="20"/></g><g fill="var(--vermillion)"><rect x="36" y="18" width="6" height="30"/><rect x="46" y="8" width="6" height="40"/></g></svg>
+            <div class="case-text-block"><span class="case-tag">Creator &amp; Growth</span><span class="case-title">Posting When They Are Watching</span></div>
+          </div>
+          <span class="plus">+</span>
+        </button>
+        <div class="case-body">
+          <svg class="case-diagram-large" viewBox="0 0 460 140"><g fill="var(--charcoal)" opacity="0.4"><rect x="40" y="90" width="30" height="40"/><rect x="90" y="80" width="30" height="50"/><rect x="140" y="70" width="30" height="60"/><rect x="190" y="55" width="30" height="75"/></g><g fill="var(--vermillion)"><rect x="240" y="38" width="30" height="92"/><rect x="290" y="22" width="30" height="108"/><rect x="340" y="8" width="30" height="122"/></g></svg>
+          <div class="case-block"><h4>The Problem</h4><p>Building a personal content brand across Instagram, TikTok, YouTube, Facebook and Snapchat with no ad budget and no guarantee that any video would travel.</p></div>
+          <div class="case-block"><h4>The Move</h4><p>Read each platform&rsquo;s insights to see who was watching, from where, and at what time. TikTok showed a window when followers were most active, so I posted only then, and kept a consistent style and schedule so both the algorithm and the audience knew what to expect.</p></div>
+          <div class="case-block"><h4>Result</h4><p>Reach grew sharply, entirely organically, to 11,000+ followers and 1M+ views across platforms over more than five years, with most of the reach on TikTok.</p></div>
+          <div class="case-metrics"><div class="metric"><span class="num">11,000+</span><span class="label">followers, organic</span></div><div class="metric"><span class="num">1M+</span><span class="label">views across platforms</span></div><div class="metric"><span class="num">5+</span><span class="label">years creating</span></div></div>
+          <div class="case-lesson">Growth comes from reading what the audience is already doing, then showing up consistently where they are.</div>
+        </div>
+      </div>
+
+      <!-- CASE 8: Small business growth -->
+      <div class="case-card">
+        <button class="case-toggle" aria-expanded="false">
+          <div class="case-toggle-left">
+            <svg class="case-diagram" viewBox="0 0 56 56"><circle cx="28" cy="28" r="5" fill="var(--vermillion)"/><g fill="none" stroke="var(--vermillion)" stroke-width="1.5"><circle cx="28" cy="28" r="12" opacity="0.5"/><circle cx="28" cy="28" r="20" opacity="0.3"/></g><g fill="var(--charcoal)" opacity="0.6"><circle cx="10" cy="12" r="2.5"/><circle cx="46" cy="14" r="2.5"/><circle cx="12" cy="46" r="2.5"/><circle cx="44" cy="44" r="2.5"/></g></svg>
+            <div class="case-text-block"><span class="case-tag">Small-Business Growth</span><span class="case-title">Helping Small Businesses Be Found</span></div>
+          </div>
+          <span class="plus">+</span>
+        </button>
+        <div class="case-body">
+          <svg class="case-diagram-large" viewBox="0 0 460 140"><circle cx="90" cy="70" r="10" fill="var(--vermillion)"/><g stroke="var(--border)" stroke-width="1.5"><line x1="100" y1="70" x2="250" y2="30"/><line x1="100" y1="70" x2="250" y2="70"/><line x1="100" y1="70" x2="250" y2="110"/></g><g fill="var(--charcoal)" opacity="0.7"><circle cx="260" cy="30" r="8"/><circle cx="260" cy="70" r="8"/><circle cx="260" cy="110" r="8"/></g><g font-family="IBM Plex Mono" font-size="13" fill="var(--charcoal)"><text x="285" y="35">ASHALLURE</text><text x="285" y="75">AFMUA</text><text x="285" y="115">HBFACE</text></g></svg>
+          <div class="case-block"><h4>The Problem</h4><p>Small businesses with a good offer and a reach problem: not enough people knew they existed.</p></div>
+          <div class="case-block"><h4>The Move</h4><p>Applied the same audience instincts to other people&rsquo;s brands. For Ashallure, I collaborated on content that grew its reach to almost 40k views across TikTok and Instagram. For AFMUA, an African makeup competition, I curated the launch video with the founder, using ChatGPT to sharpen the strategy, and now provide consultation, ambassadorship and scale strategy. A content creator runs AFMUA&rsquo;s ads.</p></div>
+          <div class="case-block"><h4>Result</h4><p>AFMUA&rsquo;s launch video reached almost 40k people on Instagram and led to almost 100 sales and many positive external reviews. A story post for HBFace, a brand newly opened in London, Ontario, reached 200 people, shared as a collaboration paid in a complimentary service.</p></div>
+          <div class="case-metrics"><div class="metric"><span class="num">Almost 40k</span><span class="label">views, Ashallure</span></div><div class="metric"><span class="num">Almost 40k</span><span class="label">reach, AFMUA launch</span></div><div class="metric"><span class="num">Almost 100</span><span class="label">sales, AFMUA</span></div></div>
+          <div class="case-lesson">Attention only matters when it reaches the right people, so the work is making a small brand easy to find and easy to trust.</div>
+        </div>
+      </div>
+
+      <!-- CASE 9: Program operations -->
+      <div class="case-card">
+        <button class="case-toggle" aria-expanded="false">
+          <div class="case-toggle-left">
+            <svg class="case-diagram" viewBox="0 0 56 56"><g fill="var(--charcoal)" opacity="0.55"><rect x="8" y="10" width="40" height="6"/><rect x="8" y="22" width="40" height="6"/><rect x="8" y="34" width="26" height="6"/></g><rect x="8" y="46" width="12" height="6" fill="var(--vermillion)"/></svg>
+            <div class="case-text-block"><span class="case-tag">Program Operations</span><span class="case-title">The Whole Student Lifecycle</span></div>
+          </div>
+          <span class="plus">+</span>
+        </button>
+        <div class="case-body">
+          <svg class="case-diagram-large" viewBox="0 0 460 130"><g fill="var(--charcoal)" opacity="0.55"><rect x="30" y="20" width="90" height="16"/><rect x="140" y="20" width="90" height="16"/><rect x="250" y="20" width="90" height="16"/></g><g fill="var(--vermillion)"><rect x="30" y="60" width="90" height="16"/><rect x="140" y="60" width="90" height="16"/></g><g fill="var(--charcoal)" opacity="0.3"><rect x="250" y="60" width="90" height="16"/></g><text x="30" y="108" font-family="IBM Plex Mono" font-size="12" fill="var(--warm-grey)">ADMIT, ADVISE, AWARD, DEFEND, GRADUATE</text></svg>
+          <div class="case-block"><h4>The Problem</h4><p>Graduate students move through admission, advising, awards, thesis and graduation, and a missed requirement at any step can cost them time, funding or a job.</p></div>
+          <div class="case-block"><h4>The Move</h4><p>Audit each application against minimum requirements, send offers on time, document every special permission, compile award applications and book committee meetings with the scholarship committee Chair, and manage thesis and exam administration. I also study the program&rsquo;s statistical reports and calculate averages for the annual report that sets the scholarship funding the program is entitled to receive next year.</p></div>
+          <div class="case-block"><h4>Volume</h4><p>Over 100 thesis and non-thesis applications handled since April on a rolling basis, almost 60 students, and 10+ PeopleSoft queries a week to audit enrollment and see who has arrived.</p></div>
+          <div class="case-metrics"><div class="metric"><span class="num">100+</span><span class="label">applications since April</span></div><div class="metric"><span class="num">10+</span><span class="label">PeopleSoft queries a week</span></div><div class="metric"><span class="num">~60</span><span class="label">students</span></div></div>
+          <div class="case-lesson">Students stay on track when someone checks the details early and owns the follow-through.</div>
+        </div>
+      </div>
+
+      <!-- CASE 10: Initiative and procurement -->
+      <div class="case-card">
+        <button class="case-toggle" aria-expanded="false">
+          <div class="case-toggle-left">
+            <svg class="case-diagram" viewBox="0 0 56 56"><path d="M8,44 L8,20 L22,20 L22,32 L36,32 L36,12 L48,12" fill="none" stroke="var(--warm-grey)" stroke-width="2" opacity="0.5"/><circle cx="48" cy="12" r="4" fill="var(--vermillion)"/></svg>
+            <div class="case-text-block"><span class="case-tag">Initiative &amp; Procurement</span><span class="case-title">Asking Until It Was Yes</span></div>
+          </div>
+          <span class="plus">+</span>
+        </button>
+        <div class="case-body">
+          <svg class="case-diagram-large" viewBox="0 0 460 130"><g stroke="var(--border)" stroke-width="1.5"><line x1="60" y1="65" x2="170" y2="65"/><line x1="170" y1="65" x2="280" y2="65"/></g><path d="M280,65 L390,65" stroke="var(--vermillion)" stroke-width="3"/><g fill="var(--charcoal)" opacity="0.7"><circle cx="60" cy="65" r="8"/><circle cx="170" cy="65" r="8"/></g><circle cx="280" cy="65" r="8" fill="none" stroke="var(--vermillion)" stroke-width="2"/><circle cx="390" cy="65" r="10" fill="var(--vermillion)"/><text x="230" y="108" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="var(--warm-grey)">ASK, ROUTE, MAKE THE CASE, FOLLOW UP</text></svg>
+          <div class="case-block"><h4>The Problem</h4><p>The Chair I supported gave speakers King&rsquo;s and department merchandise to build long-standing relationships. I managed the department&rsquo;s merchandise inventory and procurement, and we needed more to cover every guest that school year. King&rsquo;s had ended free merchandise, the department was trying to save money, and the King&rsquo;s store prices were high.</p></div>
+          <div class="case-block"><h4>The Move</h4><p>I asked my team who to speak to, tried a contact who handled merchandise outside the store, and then used contacts from my time in Enrolment Services, whose office handles hundreds of items for open houses and tours. The first ask did not work, but I was given contacts across King&rsquo;s, made a compelling case for how it would benefit King&rsquo;s and the department, and followed up several times.</p></div>
+          <div class="case-block"><h4>Result</h4><p>The merchandise the department received was completely free and covered the school year.</p></div>
+          <div class="case-lesson">The first no is usually information. It tells you who to ask next.</div>
+        </div>
+      </div>
+
+      <!-- CASE 11: Product thinking -->
+      <div class="case-card">
+        <button class="case-toggle" aria-expanded="false">
+          <div class="case-toggle-left">
+            <svg class="case-diagram" viewBox="0 0 56 56"><rect x="14" y="6" width="28" height="44" rx="4" fill="none" stroke="var(--charcoal)" stroke-width="2" opacity="0.6"/><rect x="19" y="14" width="18" height="6" fill="var(--vermillion)"/><rect x="19" y="26" width="18" height="4" fill="var(--charcoal)" opacity="0.35"/><rect x="19" y="34" width="12" height="4" fill="var(--charcoal)" opacity="0.35"/></svg>
+            <div class="case-text-block"><span class="case-tag">Product Thinking</span><span class="case-title">Anticipating the Second User</span></div>
+          </div>
+          <span class="plus">+</span>
+        </button>
+        <div class="case-body">
+          <svg class="case-diagram-large" viewBox="0 0 460 140"><rect x="150" y="10" width="160" height="120" rx="10" fill="none" stroke="var(--charcoal)" stroke-width="2" opacity="0.6"/><rect x="170" y="30" width="120" height="22" fill="var(--vermillion)" opacity="0.85"/><rect x="170" y="64" width="120" height="10" fill="var(--charcoal)" opacity="0.3"/><rect x="170" y="82" width="80" height="10" fill="var(--charcoal)" opacity="0.3"/></svg>
+          <div class="case-block"><h4>The Problem</h4><p>Many people told me they do not know where to start in the job market. Career Buddy, the job search app I am designing and building with Lovable and Claude Code, exists to fix that, one person at a time.</p></div>
+          <div class="case-block"><h4>The Move</h4><p>I gave the app&rsquo;s AI agent one deliberately narrow job, helping users complete a specific section, and asked early what happens when someone tries to make it do more. I set guardrails to keep it focused no matter how it is asked. My sociology background shapes each screen: I ask what someone will really do here, not only whether it works. My art background helps me decide what stays on a page and what goes.</p></div>
+          <div class="case-block"><h4>Where it stands</h4><p>The prototype is set to launch in the coming months, and real user data will guide the next improvements.</p></div>
+          <div class="case-lesson">Plan for what you can see. Stay flexible for what you can&rsquo;t.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -466,31 +579,31 @@
       <div class="tool-tier-row">
         <span class="tool-tier-label">Used</span>
         <div class="tool-pixels">
-          <span class="tool-pixel used">Excel</span><span class="tool-pixel used">Dynamics 365</span><span class="tool-pixel used">Salesforce</span><span class="tool-pixel used">SharePoint</span><span class="tool-pixel used">PeopleSoft</span><span class="tool-pixel used">Microsoft Visio</span><span class="tool-pixel used">Microsoft Project</span><span class="tool-pixel used">Google Workspace</span><span class="tool-pixel used">Python</span><span class="tool-pixel used">Claude</span><span class="tool-pixel used">Gemini</span><span class="tool-pixel used">ChatGPT</span>
+          <span class="tool-pixel used">Excel</span><span class="tool-pixel used">Dynamics 365</span><span class="tool-pixel used">SharePoint</span><span class="tool-pixel used">PeopleSoft</span><span class="tool-pixel used">Microsoft Visio</span><span class="tool-pixel used">Microsoft Project</span><span class="tool-pixel used">Google Workspace</span><span class="tool-pixel used">Python</span><span class="tool-pixel used">Claude</span><span class="tool-pixel used">Gemini</span><span class="tool-pixel used">ChatGPT</span><span class="tool-pixel used">Qualtrics</span><span class="tool-pixel used">Microsoft 365</span><span class="tool-pixel used">Microsoft Copilot</span><span class="tool-pixel used">Lovable</span><span class="tool-pixel used">Claude Code</span><span class="tool-pixel used">TikTok, Instagram &amp; YouTube Insights</span>
         </div>
       </div>
       <div class="tool-tier-row">
         <span class="tool-tier-label">Familiar</span>
         <div class="tool-pixels">
-          <span class="tool-pixel familiar">Asana</span><span class="tool-pixel familiar">JIRA</span><span class="tool-pixel familiar">SQL</span>
+          <span class="tool-pixel familiar">Asana</span><span class="tool-pixel familiar">JIRA</span><span class="tool-pixel familiar">Salesforce (Trailhead)</span>
         </div>
       </div>
       <div class="tool-tier-row">
         <span class="tool-tier-label">Learning</span>
         <div class="tool-pixels">
-          <span class="tool-pixel learning">JavaScript</span><span class="tool-pixel learning">Google Cloud</span><span class="tool-pixel learning">AWS Fundamentals</span>
+          <span class="tool-pixel learning">SQL</span><span class="tool-pixel learning">JavaScript</span><span class="tool-pixel learning">Google Cloud</span><span class="tool-pixel learning">AWS Fundamentals</span>
         </div>
       </div>
       <div class="cert-row" style="margin-top: 26px;">
         <div class="tool-tier-row">
           <span class="tool-tier-label">Completed</span>
-          <span class="tier-items">Google Agile Essentials &middot; PMI Generative AI Overview for Project Managers &middot; Google Cloud Introduction to Responsible AI &middot; AWS Cloud Practitioner Essentials &middot; Google Cloud Fundamentals: Core Infrastructure &middot; Product Marketing: Go-to-Market Strategy &amp; Launch &middot; Claude 101 (Anthropic Academy)</span>
+          <span class="tier-items">Google Agile Essentials &middot; PMI Generative AI Overview for Project Managers &middot; Google Cloud Introduction to Responsible AI &middot; AWS Cloud Practitioner Essentials &middot; Google Cloud Fundamentals: Core Infrastructure &middot; Product Marketing: Go-to-Market Strategy &amp; Launch &middot; Claude 101 (Anthropic Academy) &middot; ISC2 Foundations of Governance, Risk, and Compliance</span>
         </div>
       </div>
       <div class="cert-row">
         <div class="tool-tier-row">
           <span class="tool-tier-label">In Progress</span>
-          <span class="tier-items">Google Project Management Certificate &middot; PMP (Planned)</span>
+          <span class="tier-items">Google Project Management Certificate &middot; Google Cybersecurity Certificate &middot; PMP (Planned)</span>
         </div>
       </div>
     </div>
@@ -508,6 +621,7 @@
       <div class="about-text">
         <p>I keep finding myself in situations where people, processes, and priorities do not naturally line up: a policy exception with no clear owner, a workflow everyone complains about but no one has fixed, a new tool nobody trusts yet.</p>
         <p>That instinct started earlier than my career did. I began university in Economics, completing coursework in linear algebra, calculus, and micro and macroeconomics, before transitioning into Sociology, Art History, and Studio Art. Understanding a pattern in data is one thing; understanding why people actually behave the way that data shows is another, and that second lens has shaped how I approach every problem since.</p>
+        <p>Alongside my work, I have created short-form video for more than five years, growing my own pages organically to 11,000+ followers and 1M+ views across platforms. What I learned there about timing, consistency and what an audience really responds to, I now use to help small businesses reach the people they are meant to serve, one business at a time.</p>
         <p>That instinct has developed across academic administration, municipal operations, and independent creative work. Different environments, same underlying problem: understand what people actually need, make the moving parts visible, align the right people, and create a path forward.</p>
         <p>That is the work I like most: taking something complicated and making it move.</p>
       </div>
@@ -519,7 +633,43 @@
   <div class="wrap">
     <div class="section-eyebrow">Field Notes</div>
     <h2>Occasional writing.</h2>
-    <div class="fieldnote">
+    <div class="fieldnote" style="margin-bottom:34px">
+      <div class="fieldnote-meta">LinkedIn &middot; Program Management</div>
+      <p>Always anticipate.</p>
+      <p>As a program manager, a big part of my job is seeing problems before they arrive. That means asking the right questions early, so small issues never get the chance to become delays.</p>
+      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+        <p>Building my first software product has taught me the same lesson from a different angle.</p>
+        <p>My app includes an AI agent with one deliberately narrow job: helping users complete a specific section. Early on, I asked myself, &ldquo;What happens when someone tries to make it do more?&rdquo;</p>
+        <p>Because someone will. So I set guardrails to keep the agent focused on what it was designed for, no matter how it&rsquo;s asked.</p>
+        <p>The challenge is that you can only anticipate so much at once. Some problems only show up when real people use what you&rsquo;ve built.</p>
+        <p>But anticipating is still worth it. It isn&rsquo;t about predicting everything. It&rsquo;s about being prepared enough that you can adapt quickly when something does come up. Plan for what you can see. Stay flexible for what you can&rsquo;t.</p>
+        <p>What&rsquo;s a problem you caught early that saved you a lot of trouble later?</p>
+        </details>
+    </div>
+    <div class="fieldnote" style="margin-bottom:34px">
+      <div class="fieldnote-meta">LinkedIn &middot; Product Thinking</div>
+      <p>Sociology taught me to study people. Art taught me to see. Both turned out to be product skills.</p>
+      <p>As I build my app with AI tools like Lovable and Claude Code, I keep coming back to what my degree trained me to do.</p>
+      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+        <p>Sociology taught me to ask how people actually behave, not how we assume they will. So when I design a screen, I don&rsquo;t stop at &ldquo;Does this work?&rdquo; I ask, &ldquo;What will someone really do here?&rdquo;</p>
+        <p>Art taught me to notice what feels clear and what feels cluttered. That shows up every time I decide what stays on a page and what goes.</p>
+        <p>Great products are built for people. And understanding people is a skill you can build in many places.</p>
+        <p>Every experience you&rsquo;ve had is preparing you for something. Sometimes you only see what when you start something new.</p>
+        <p>What&rsquo;s a skill from an unexpected place that shows up in your work today?</p>
+        </details>
+    </div>
+    <div class="fieldnote" style="margin-bottom:34px">
+      <div class="fieldnote-meta">LinkedIn &middot; Prioritization</div>
+      <p>Not everything that arrives urgently is urgent.</p>
+      <p>One of my earliest lessons in managing complex work came from a high-volume customer service role. Requests came in all day. Each one felt like a priority to the person sending it, and every one deserved a response. But they couldn&rsquo;t all go first.</p>
+      <details><summary style="cursor:pointer;margin-top:8px">Read more</summary>
+        <p>So I learned to triage. Before acting on a request, I&rsquo;d ask: What do the guidelines actually say? Who is affected, and how quickly? Which team is best placed to solve this?</p>
+        <p>Those three questions did more than sort a queue. They turned a constant flood of &ldquo;urgent&rdquo; into a clear order of work, and they meant each request reached the right people the first time.</p>
+        <p>I still use that habit today, whether I&rsquo;m coordinating stakeholders or deciding what to build next in my app. When everything feels urgent, the real work is deciding what matters most.</p>
+        <p>How do you decide what comes first when everything feels like a priority?</p>
+        </details>
+    </div>
+    <div class="fieldnote" style="margin-bottom:34px">
       <div class="fieldnote-meta">LinkedIn &middot; Product Thinking</div>
       <p>I've been exploring how far large language models can actually take someone building a product from scratch, one aimed at a pain point I think is genuinely underserved.</p>
       <p>One thing has become clear fast: iteration is not a phase you finish. It is the whole process. Following your product's own lifecycle, instead of trying to build the finished version in your head all at once, matters more than I expected going in.</p>
@@ -636,7 +786,7 @@
         requestAnimationFrame(draw);
       } else {
         // reveal text once pixels have mostly settled
-        ['hero-name','hero-role','hero-line','hero-sub'].forEach(function(id) {
+        ['hero-name','hero-role','hero-line','hero-sub','hero-sub-2'].forEach(function(id) {
           document.getElementById(id).classList.add('revealed');
         });
         // fade out remaining particles gently
@@ -662,7 +812,7 @@
     }
 
     if (reduced) {
-      ['hero-name','hero-role','hero-line','hero-sub'].forEach(function(id) {
+      ['hero-name','hero-role','hero-line','hero-sub','hero-sub-2'].forEach(function(id) {
         document.getElementById(id).classList.add('revealed');
       });
     } else {
