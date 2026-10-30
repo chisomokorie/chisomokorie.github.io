@@ -95,11 +95,15 @@ nav a:hover { color: var(--ink); }
 .player h2 { font-size: 24px; font-weight: 700; }
 .player .cls { font-size: 14px; color: var(--muted); margin-top: 4px; }
 .badges { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.badge { border: 1.5px dashed var(--line); border-radius: 8px; padding: 9px 8px; text-align: center; color: var(--muted); transition: all 0.35s ease; }
+.badge { position: relative; border: 1.5px solid var(--line); border-radius: 8px; padding: 9px 8px; text-align: center; color: var(--ink); background: var(--surface); cursor: pointer; transition: all 0.35s ease; }
+.badge:hover { border-color: var(--accent); }
+.badge .bn { color: var(--accent); }
+.badge::after { content: "\2713"; position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; background: var(--done); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; transform: scale(0); transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.badge.on::after { transform: scale(1); }
 .badge .bn { font-family: var(--display); font-weight: 800; font-size: 20px; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .badge .bl { font-size: 11.5px; line-height: 1.3; margin-top: 3px; display: block; }
-.badge.on { border-style: solid; border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
-.badge.on .bn { color: var(--accent); }
+.badge.on { border-color: var(--done); background: var(--done-soft); box-shadow: 0 0 0 3px var(--done-soft); }
+.badge.on .bn { color: var(--done); }
 .badge.pop { animation: pop 0.5s ease; }
 @keyframes pop { 40% { transform: scale(1.12); } }
 .player .hint { margin-top: 12px; font-size: 13px; color: var(--muted); }
@@ -426,6 +430,14 @@ body.recruiter main > section:not(#recruiter), body.recruiter .rocket, body.recr
 .li-res:hover { transform: translateY(-2px); background: var(--accent-soft); }
 .li-res svg { transition: transform 0.2s; }
 .li-res:hover svg { transform: translateY(2px); }
+
+.play { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.earn { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border-radius: 99px; border: 1px dashed var(--line); color: var(--muted); }
+.earn.got { border: 1px solid var(--done); background: var(--done-soft); color: var(--done); animation: pop 0.5s ease; }
+.level.cleared .state { background: var(--done-soft); color: var(--done); }
+
+.badge-hint { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.badge-hint span { font-family: var(--mono); color: var(--done); }
 /* LinkedIn card */
 .li-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .li-card .banner { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; object-fit: cover; border: 0; border-radius: 0; margin: 0; }
@@ -520,7 +532,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
   <div class="wrap">
     <a class="brand" href="#top">Chisom Okorie</a>
     <div class="xp" aria-live="polite">
-      <span id="xp-text">0/6 levels<span class="xp-long"> explored</span></span>
+      <span id="xp-text">0/6 played</span>
       <span class="bar" aria-hidden="true"><span class="fill" id="xp-fill"></span></span>
     </div>
     <nav aria-label="Sections">
@@ -572,6 +584,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
         <div class="badge" data-badge="5"><span class="bn">30%</span><span class="bl">faster onboarding</span></div>
         <div class="badge" data-badge="6"><span class="bn">5,000+</span><span class="bl">requests resolved</span></div>
       </div>
+      <p class="badge-hint">Play a level to collect its badge · <span id="bcount">0/6</span></p>
       <div class="powerups">
         <span class="ref">Power-ups equipped</span>
         <div class="pu-list" id="pu-list">
@@ -582,7 +595,6 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
         <p class="pu-tip" id="pu-tip" aria-live="polite"></p>
       </div>
       <button type="button" class="lens-btn" id="lens" role="switch" aria-checked="false"><span class="sw" aria-hidden="true"></span>Show me the AI</button>
-      <p class="hint">Badges light up as you explore each level.</p>
     </div>
   </div>
 </section>
@@ -649,9 +661,9 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
 
     <div class="levels">
 
-      <article class="level" data-level="1">
+      <article class="level" data-level="1" id="lv1">
         <aside>
-          <div class="lv"><span class="ref">Level 1</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 1</span><span class="state">Ready</span></div>
           <div class="metric">93%</div>
           <div class="metric-label">conflict-free schedule across 20+ staff and faculty</div>
           <div class="tags"><span class="tag">Business rules</span><span class="tag">Stakeholder alignment</span><span class="tag">Excel dashboard</span></div>
@@ -661,16 +673,16 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <p class="where">Western University, Electrical &amp; Computer Engineering</p>
           <div class="row"><span class="k">Goal</span><span>A new rule banned course clashes in the graduate timetable, and some faculty pushed back. The schedule had to meet the rule for everyone.</span></div>
           <div class="row"><span class="k">Result</span><span>A 93% conflict-free schedule across 20+ staff and faculty, so students could take the courses they needed.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m1">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m1">See how I did it</button><span class="earn">+ 93% badge</span></div>
           <div class="more" id="m1">
             <div class="row"><span class="k">Action</span><span>I held the rule and treated it as a business rule the schedule had to enforce. I built an Excel timetable dashboard that flagged conflicts before they happened, so people could see the problem and agree on fixes early.</span></div>
           </div>
         </div>
       </article>
 
-      <article class="level" data-level="2">
+      <article class="level" data-level="2" id="lv2">
         <aside>
-          <div class="lv"><span class="ref">Level 2</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 2</span><span class="state">Ready</span></div>
           <div class="metric">15%</div>
           <div class="metric-label">faster course-approval turnaround across 5 departments</div>
           <div class="tags"><span class="tag">Process analysis</span><span class="tag">As-is / to-be</span><span class="tag">Root cause</span></div>
@@ -680,7 +692,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <p class="where">King's University College, Dean's Office</p>
           <div class="row"><span class="k">Goal</span><span>Course-outline approvals were stalling across 5 departments. They needed to move faster without adding work for Chairs.</span></div>
           <div class="row"><span class="k">Result</span><span>Turnaround fell by 15% across 5 departments, so courses were approved sooner.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m2">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m2">See how I did it</button><span class="earn">+ 15% badge</span></div>
           <div class="more" id="m2">
             <div class="row"><span class="k">Action</span><span>I found where the process stalled and changed one step: I reviewed each outline as soon as it arrived and sent one email with all notes.</span></div>
             <div class="pmap" role="img" aria-label="Process map. As-is: outline arrives, waits for review, notes sent as they come up, approved. To-be: outline arrives, reviewed on arrival, one email with all notes, approved 15% faster.">
@@ -695,9 +707,9 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
         </div>
       </article>
 
-      <article class="level" data-level="3">
+      <article class="level" data-level="3" id="lv3">
         <aside>
-          <div class="lv"><span class="ref">Level 3</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 3</span><span class="state">Ready</span></div>
           <div class="metric">60+</div>
           <div class="metric-label">students with access to the project milestone guide</div>
           <div class="tags"><span class="tag">Process documentation</span><span class="tag">User needs</span><span class="tag">Tracking</span></div>
@@ -707,7 +719,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <p class="where">Western University, Electrical &amp; Computer Engineering</p>
           <div class="row"><span class="k">Goal</span><span>Project-based students, and students thinking about the project route, needed a clear path to the project milestone. Students start in Fall, Winter or Summer, so every timeline is different.</span></div>
           <div class="row"><span class="k">Result</span><span>Accessible to 60+ students. It reduces confusion for students and makes project milestone tracking easier for the program office.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m3">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m3">See how I did it</button><span class="earn">+ 60+ badge</span></div>
           <div class="more" id="m3">
             <div class="row"><span class="k">Action</span><span>I built a cohort-friendly guidebook that breaks the project milestone down into each student's own schedule, based on the term they started.</span></div>
             <div class="intakes" role="img" aria-label="Three intake lanes, Fall, Winter and Summer. Each lane reaches the same project milestone at a different point, depending on the start term.">
@@ -723,7 +735,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
 
       <article class="level" data-level="4" id="lv4">
         <aside>
-          <div class="lv"><span class="ref">Level 4</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 4</span><span class="state">Ready</span></div>
           <div class="metric">3</div>
           <div class="metric-label">starting points: Explore, Pursue, Grow</div>
           <div class="tags"><span class="tag">Problem statement</span><span class="tag">User needs</span><span class="tag">AI guardrails</span><span class="tag">Edge cases</span></div>
@@ -734,7 +746,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <blockquote class="cb-line">"Where you are is only part of the story, not the end of the book."</blockquote>
           <div class="row"><span class="k">Goal</span><span>Many people told me they did not know where to start in the job market. Some felt hopeless because they thought they were behind. Career Buddy starts from wherever they are.</span></div>
           <div class="row"><span class="k">Result</span><span>The prototype is built, and the beta launches in the coming months. Real user data will guide the next improvements.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m4">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m4">See how I did it</button><span class="earn">+ 3 paths badge</span></div>
           <div class="more" id="m4">
             <div class="row"><span class="k">Action</span><span>I designed the architecture first, because the idea was complex. I split the journey into chapters, so moving forward feels visible without feeling like pressure. I gave the AI agent one deliberately narrow job, then asked early what happens when someone tries to make it do more, and set guardrails to keep it focused however it is asked.</span></div>
 
@@ -775,7 +787,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
 
       <article class="level" data-level="5" id="lv5">
         <aside>
-          <div class="lv"><span class="ref">Level 5</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 5</span><span class="state">Ready</span></div>
           <div class="metric">30%</div>
           <div class="metric-label">shorter onboarding time</div>
           <div class="tags"><span class="tag">AI pilot</span><span class="tag">Change adoption</span><span class="tag">Documentation</span></div>
@@ -785,16 +797,16 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <p class="where">Western University, Electrical &amp; Computer Engineering</p>
           <div class="row"><span class="k">Goal</span><span>The team needed a safe way to try a new AI tool, and new colleagues needed a faster way to learn the work.</span></div>
           <div class="row"><span class="k">Result</span><span>The pilot earned the trust to expand, and onboarding time fell by 30%.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m5">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m5">See how I did it</button><span class="earn">+ 30% badge</span></div>
           <div class="more" id="m5">
             <div class="row"><span class="k">Action</span><span>I wrote training material in my first two weeks. For a new AI tool, there was initial hesitation, so I proposed one narrow, low-risk Zoom AI pilot first.</span></div>
           </div>
         </div>
       </article>
 
-      <article class="level" data-level="6">
+      <article class="level" data-level="6" id="lv6">
         <aside>
-          <div class="lv"><span class="ref">Level 6</span><span class="state">Not played</span></div>
+          <div class="lv"><span class="ref">Level 6</span><span class="state">Ready</span></div>
           <div class="metric">5,000+</div>
           <div class="metric-label">resident requests resolved in Dynamics 365 CRM</div>
           <div class="tags"><span class="tag">Prioritization</span><span class="tag">CRM</span><span class="tag">Business rules</span></div>
@@ -804,7 +816,7 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
           <p class="where">City of London, Service London</p>
           <div class="row"><span class="k">Goal</span><span>Every resident request had to reach the right team at the right speed.</span></div>
           <div class="row"><span class="k">Result</span><span>5,000+ requests resolved, so residents got answers from the people who could act on them.</span></div>
-          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m6">See how I did it</button></div>
+          <div class="play"><button class="play-btn" aria-expanded="false" aria-controls="m6">See how I did it</button><span class="earn">+ 5,000+ badge</span></div>
           <div class="more" id="m6">
             <div class="row"><span class="k">Action</span><span>I sorted each request by service guidelines, urgency and the team that owned it, and kept records accurate in the CRM.</span></div>
           </div>
@@ -1143,13 +1155,14 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
   var total = 6;
   var badgeNames = { 1: "93% conflict-free", 2: "15% faster approvals", 3: "60+ students guided", 4: "3 product paths", 5: "30% faster onboarding", 6: "5,000+ requests" };
   function render(animateId) {
-    document.getElementById("xp-text").innerHTML = cleared.length + "/" + total + " levels<span class=\"xp-long\"> explored</span>";
+    document.getElementById("xp-text").innerHTML = cleared.length + "/" + total + " played";
+    var bc = document.getElementById("bcount"); if (bc) bc.textContent = cleared.length + "/" + total;
     document.getElementById("xp-fill").style.width = (cleared.length / total * 100) + "%";
     cleared.forEach(function (id) {
       var b = document.querySelector('.badge[data-badge="' + id + '"]');
       if (b) { b.classList.add("on"); if (String(id) === String(animateId)) { b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); } }
       var lv = document.querySelector('.level[data-level="' + id + '"]');
-      if (lv) { lv.classList.add("cleared"); lv.querySelector(".state").textContent = "Cleared"; }
+      if (lv) { lv.classList.add("cleared"); lv.querySelector(".state").textContent = "Played \u2713"; var e = lv.querySelector(".earn"); if (e) { e.classList.add("got"); e.textContent = "\u2713 Badge collected"; } }
     });
   }
   render();
@@ -1164,8 +1177,8 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
       btn.textContent = open ? "Hide how I did it" : "See how I did it";
       if (open && cleared.indexOf(id) === -1) {
         cleared.push(id); store.set(cleared); render(id);
-        if (cleared.length === total) toast("All six levels explored. Thoroughness is a business analyst trait.");
-        else toast("Level " + id + " cleared. Badge unlocked: " + badgeNames[id]);
+        if (cleared.length === total) toast("All 6 badges collected. Thorough, like a good BA.");
+        else toast("Badge collected");
       }
     });
   });
@@ -1272,6 +1285,15 @@ footer { padding: 28px 0 44px; color: var(--muted); font-size: 13.5px; border-to
   document.getElementById("lens-off").addEventListener("click", function () { setLens(false); lensBtn.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); });
   document.getElementById("lens-next").addEventListener("click", function () { focusMoment(mi + 1); });
   document.getElementById("lens-prev").addEventListener("click", function () { focusMoment(mi - 1); });
+
+
+  /* Badges jump to their level */
+  document.querySelectorAll(".badge").forEach(function (b) {
+    b.setAttribute("role", "link"); b.setAttribute("tabindex", "0");
+    function go() { var lv = document.getElementById("lv" + b.getAttribute("data-badge")); if (lv) lv.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); }
+    b.addEventListener("click", go);
+    b.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
 
   /* Count-up numbers */
   function parseNum(s) {
